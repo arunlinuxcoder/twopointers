@@ -1,0 +1,29 @@
+char * reverseOnlyLetters(char * s){
+    char *first=0,*last=0,temp='\0';
+    first=s;
+    last=first+strlen(s)-1;
+    first=s;
+    while(1){
+        if(first==last || (first-1==last && last+1==first))
+            break;
+
+        if(*first>='a' && *first<='z' ||  *first>='A' && *first<='Z'){
+            if(*last>='a' && *last<='z' ||  *last>='A' && *last<='Z'){
+                temp=*last;
+                *last=*first;
+                *first=temp;
+
+                last--;
+                first++;
+            }
+            else{
+                last--;
+            }
+        }
+        else{
+            first++;
+        }
+    }
+
+    return s;
+}
